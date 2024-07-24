@@ -38,7 +38,7 @@ Recommendation</button>
 {selectedTab === 'Build' && <div className='poppins-regular'style={{padding:"20px 20px"}}>This is Build Tab, Click on the Recommendation tab</div>}
 {selectedTab === 'Draft' && <div className='poppins-regular'style={{padding:"20px 20px"}}>This is Draft Tab, Click on the Recommendation tab</div>}
 {selectedTab === 'Recommendation' && <div className='poppins-regular recommedntaionTab'>
-  <p>Marketing and Sales Strategy</p>
+  <p style={{marginBottom:"20px",fontSize:"20px"}}>Marketing and Sales Strategy</p>
   <ChakraProvider>
   <Recommendation/>
   </ChakraProvider>
