@@ -18,20 +18,14 @@ Input,
 import AImessage from "./Chat/Botmessage";
 import Usermessage from "./Chat/Usermessage";
 
+
 // import { } from '@chakra-ui/react';
 function MainContent({items}) {
 
 
-  useEffect(() => {
-    fetch("https://dummyapi.online/api/social-profiles")
-      .then((response) => response.json())
-      .then((json) => console.log(json));
-  }, []);
-
   const [selectedTab, setSelectedTab] = useState("Build");
 
-  const [step, setStep] = useState(1);
-  const [subTab, setSubTab] = useState(null);
+  const [subTab, setSubTab] = useState("Market Analysis");
   const [checkedItems, setCheckedItems] = useState(Array(items.length).fill(false));
 
   const handleCheckboxChange = (index) => {
