@@ -19,7 +19,7 @@ import AImessage from "./Chat/Botmessage";
 import Usermessage from "./Chat/Usermessage";
 
 // import { } from '@chakra-ui/react';
-function MainContent() {
+function MainContent({items}) {
 
 
   useEffect(() => {
@@ -31,16 +31,16 @@ function MainContent() {
   const [selectedTab, setSelectedTab] = useState("Build");
 
   const [step, setStep] = useState(1);
-  const [subTab, setSubTab] = useState("Market Analysis");
-  const totalSteps = 5;
+  const [subTab, setSubTab] = useState(null);
+  const [checkedItems, setCheckedItems] = useState(Array(items.length).fill(false));
 
-  const items = [
-    "Market Analysis",
-    "Customer segmentation",
-    "Competitive landscape",
-    "Marketing Strategy",
-    "Sales Plan",
-  ];
+  const handleCheckboxChange = (index) => {
+    const newCheckedItems = [...checkedItems];
+    newCheckedItems[index] = !newCheckedItems[index];
+    setCheckedItems(newCheckedItems);
+  };
+
+  
 
   return (
     <div className="mainAppdiv">
@@ -160,32 +160,32 @@ function MainContent() {
             style={{ padding: "20px 20px",height:"800px" }}
           >
             <div className="buildListTab">
-              <VStack align="stretch" gap={"8px"} spacing={2} p={4}>
-                {items.map((item, index) => (
-                  <Box
-                    key={index}
-                    className="svgContainerList"
-                    display="flex"
-                    alignItems="center"
-                    cursor={"pointer"}
-                    onClick={() => setSubTab(item)}
-                  >
-                    <Checkbox
-                    //   isChecked={index < step}
-                      onChange={() => setStep(index + 1)}
-                      colorScheme="#01E4C7"
-                      backgroundColor={index < step ? "#01E4C7" : "#fff"}
-                      className={`${
-                        index < step ? "checkBox" : "uncheckedCheckbox"
-                      } `}
-                      border={index < step ? "" : subTab === item ? "1px solid #F68623" : ""}
-                      size="lg"
-                      mr={8}
-                    />
-                    <p className="margin-none" style={{fontWeight:subTab === item ? "500" :"400",fontSize:"14px"}}>{item}</p>
-                  </Box>
-                ))}
-              </VStack>
+            <VStack align="stretch" gap={"8px"} spacing={2} p={4}>
+          {items.map((item, index) => (
+            <Box
+              key={index}
+              className="svgContainerList"
+              display="flex"
+              alignItems="center"
+              cursor={"pointer"}
+              onClick={() => setSubTab(item)}
+            >
+              <Checkbox
+                isChecked={checkedItems[index]}
+                onChange={() => handleCheckboxChange(index)}
+                colorScheme="#01E4C7"
+                backgroundColor={checkedItems[index] ? "#01E4C7" : "#fff"}
+                className={`${checkedItems[index] ? "checkBox" : "uncheckedCheckbox"} `}
+                border={checkedItems[index] ? "" : subTab === item ? "1px solid #F68623" : ""}
+                size="lg"
+                mr={8}
+              />
+              <p className="margin-none" style={{ fontWeight: subTab === item ? "500" : "400", fontSize: "14px" }}>
+                {item}
+              </p>
+            </Box>
+          ))}
+        </VStack>
             </div>
 
 {/* Market Analysis chat section */}
