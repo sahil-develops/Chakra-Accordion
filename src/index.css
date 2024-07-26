@@ -290,6 +290,10 @@ padding: 20px 10px
     width: 100%;
   }
   
+.ImproveList li {
+  font-size: 14px;
+}
+
   .fullName{
     font-size: 12px;
     font-weight: 500;
@@ -445,8 +449,8 @@ margin-right: 10px;
   }
 
   .loader {
-    width: 48px;
-    height: 48px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     position: relative;
     animation: rotate 1s linear infinite
@@ -457,7 +461,7 @@ margin-right: 10px;
     position: absolute;
     inset: 0px;
     border-radius: 50%;
-    border: 5px solid #FFF;
+    border: 3px solid #F68821;
     animation: prixClipFix 2s linear infinite ;
   }
 

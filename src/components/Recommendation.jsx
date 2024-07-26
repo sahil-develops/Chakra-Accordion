@@ -14,7 +14,7 @@ const Recommendation = () => {
   
     if (!userData) {
       return <Flex display={'flex'} justifyContent={"center"} alignItems={"center"} width={"100%"} gap={"5px"}>
-      <span className="loader"></span>
+    <span class="loader"></span>
       Loading...
       </Flex>;
     }
