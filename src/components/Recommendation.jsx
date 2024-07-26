@@ -1,7 +1,7 @@
 'use client'
-import { Accordion } from '@chakra-ui/react';
+import { Accordion, Flex } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react'
-import { AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box } from '@chakra-ui/react'
+import { AccordionButton, AccordionItem, AccordionPanel, Box } from '@chakra-ui/react'
 import Carousel from './Carousel';
 const Recommendation = () => {
     const [userData, setUserData] = useState(null);
@@ -13,7 +13,10 @@ const Recommendation = () => {
     }, []);
   
     if (!userData) {
-      return <div>Loading...</div>;
+      return <Flex display={'flex'} justifyContent={"center"} alignItems={"center"} width={"100%"} gap={"5px"}>
+      <span className="loader"></span>
+      Loading...
+      </Flex>;
     }
 return (
 <Accordion defaultIndex={[0]} allowMultiple width={"100%"}>

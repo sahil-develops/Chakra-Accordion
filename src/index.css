@@ -124,6 +124,7 @@
 align-items: flex-start;
 justify-content: flex-start;
   gap: 20px;
+  height: 800px;
   /* padding: 20px 20px; */
 
 }
@@ -212,6 +213,41 @@ padding: 20px 10px
     padding-top: 30px;
     border-radius: 30px;
   }
+
+
+
+  .mainDivButton{
+    padding: 10px 10px;
+    font-size: 12px;
+  }
+
+  .buildListTab div {
+    padding: 4px 0px;
+  }
+
+  .buildListTab div div {
+    margin-right: 10px;
+  }
+
+  .buildListTab{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    white-space: nowrap;
+    overflow-x: scroll;
+    width: 100%;
+    padding: 0px 0px;
+  }
+  .buildListTab div{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .svgContainerList{
+    margin-right: 10px;
+  }
   .improveListDiv{
     width: 100%;
     display: flex;
@@ -219,15 +255,39 @@ padding: 20px 10px
     padding: 0px 20px 20px 20px;
   }
 
+.subTabChat{
+  width: 100%;
+  margin-left: 0px;
+  height: 100%;
+}
+
   .mainAppdiv{
     max-width: 86rem;
     margin: auto;
     width: 100%;
     padding: 0px;
   }
+
+  .buildMainDiv{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
   .statusMessage{
     font-size: 12px;
     padding-top: 2px;
+  }
+
+  .appDivTabsName{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-left: 15px;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: scroll;
+    width: 100%;
   }
   
   .fullName{
@@ -274,6 +334,17 @@ padding: 20px 10px
     padding-top: 30px;
     border-radius: 30px;
   }
+
+.subTabChat{
+  width: 50%;
+  height: 50%;
+  margin-left: 40px;
+}
+
+.mainDivButton{
+  padding: 10px 20px;
+  font-size: 16px;
+}
 
   .improveListDiv{
     width: 50%;
@@ -371,4 +442,33 @@ padding: 20px 10px
     width: 100%;
     justify-content: space-around;
 margin-right: 10px;
+  }
+
+  .loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 1s linear infinite
+  }
+  .loader::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 5px solid #FFF;
+    animation: prixClipFix 2s linear infinite ;
+  }
+
+  @keyframes rotate {
+    100%   {transform: rotate(360deg)}
+  }
+
+  @keyframes prixClipFix {
+      0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+      25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+      50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+      75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+      100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
   }
