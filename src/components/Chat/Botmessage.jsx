@@ -9,7 +9,7 @@ const Botmessage = ({text}) => {
 </div>
 
 <Flex direction={"column"} gap={"0px"} alignItems={"start"} justifyContent={"flex-start"}>
-<p className="margin-none" style={{color:"#ED892F",fontSize:"16px"}}>You</p>
+<p className="margin-none" style={{color:"#C32934",fontSize:"16px"}}>Genie AI</p>
 <p className="margin-none" style={{fontSize:"14px"}}>{text}</p>
 </Flex>
 </Flex>

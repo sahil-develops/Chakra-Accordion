@@ -31,6 +31,7 @@ function MainContent() {
   const [selectedTab, setSelectedTab] = useState("Build");
 
   const [step, setStep] = useState(1);
+  const [subTab, setSubTab] = useState("Market Analysis");
   const totalSteps = 5;
 
   const items = [
@@ -156,35 +157,40 @@ function MainContent() {
         {selectedTab === "Build" && (
           <div
             className="poppins-regular buildMainDiv"
-            style={{ padding: "20px 20px" }}
+            style={{ padding: "20px 20px",height:"800px" }}
           >
             <div className="buildListTab">
-              <VStack align="stretch" spacing={2} p={4}>
+              <VStack align="stretch" gap={"8px"} spacing={2} p={4}>
                 {items.map((item, index) => (
                   <Box
                     key={index}
                     className="svgContainerList"
                     display="flex"
                     alignItems="center"
+                    cursor={"pointer"}
+                    onClick={() => setSubTab(item)}
                   >
                     <Checkbox
-                      isChecked={index < step}
+                    //   isChecked={index < step}
                       onChange={() => setStep(index + 1)}
-                      colorScheme="green"
+                      colorScheme="#01E4C7"
+                      backgroundColor={index < step ? "#01E4C7" : "#fff"}
                       className={`${
                         index < step ? "checkBox" : "uncheckedCheckbox"
                       } `}
-                      size="xl"
+                      border={index < step ? "" : subTab === item ? "1px solid #F68623" : ""}
+                      size="lg"
                       mr={8}
                     />
-                    <p className="margin-none">{item}</p>
+                    <p className="margin-none" style={{fontWeight:subTab === item ? "500" :"400",fontSize:"14px"}}>{item}</p>
                   </Box>
                 ))}
               </VStack>
             </div>
 
-            <Flex direction={"column"} alignItems={"start"} justifyContent={"flex-start"} gap={"20px"} marginTop={"20px"} marginLeft={"40px"}>
-
+{/* Market Analysis chat section */}
+{subTab === "Market Analysis" && 
+            <Flex  direction={"column"} height={"50%"} width={"50%"} alignItems={"start"}  justifyContent={"space-between"} gap={"20px"} marginTop={"20px"} marginLeft={"40px"}>
 <AImessage text="What is your company Name" />
 <Usermessage text="Coconut Fibre Product" />
 
@@ -194,20 +200,114 @@ function MainContent() {
 
 <AImessage text="What is your company logo?" />
 <ChakraProvider>
-<InputGroup border={"#FCE6D5"}  >
+<InputGroup border={"#FCE6D5"} padding={"10px"} >
     {/* <InputLeftElement pointerEvents='none' color='gray.300' fontSize='1.2em'>
       $
     </InputLeftElement> */}
-    <Input placeholder='Enter your query' />
-    <InputRightElement className="InputGroupChat">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" style={{color:"#B9333F"}} height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
-    <svg xmlns="http://www.w3.org/2000/svg"  width={"24"} height={"24"}   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg>
+    <Input placeholder='Ask follow up' padding={7} outline={"#B9333F"} />
+    <InputRightElement className="InputGroupChat" transform={"translateY(18px)"} width='4.5rem'>
+   <img src="/attach.svg"  style={{width:"20px"}} /> 
+   <img src="/upload.svg"  style={{width:"20px"}} />
     </InputRightElement>
 
   </InputGroup>
 </ChakraProvider>
 
             </Flex>
+        }
+        {/* Customer Segmentation Tab */}
+        {subTab === "Customer segmentation" && 
+            <Flex direction={"column"} height={"50%"} width={"50%"} alignItems={"start"}  justifyContent={"space-between"} gap={"20px"} marginTop={"20px"} marginLeft={"40px"}>
+<Flex direction={"column"} gap={"24px"}>
+<AImessage text="What is your company Name" />
+<Usermessage text="Coconut Fibre Product" />
+</Flex>
+<ChakraProvider>
+<InputGroup border={"#FCE6D5"} padding={"10px"} >
+    {/* <InputLeftElement pointerEvents='none' color='gray.300' fontSize='1.2em'>
+      $
+    </InputLeftElement> */}
+    <Input placeholder='Ask follow up'  padding={7} outline={"#B9333F"} />
+    <InputRightElement className="InputGroupChat" transform={"translateY(18px)"} width='4.5rem'>
+    <img src="/attach.svg"  style={{width:"20px"}} /> 
+    <img src="/upload.svg"  style={{width:"20px"}} />
+       </InputRightElement>
+
+  </InputGroup>
+</ChakraProvider>
+
+            </Flex>
+        }
+          {/* Competitive landscape */}
+          {subTab === "Competitive landscape" && 
+            <Flex direction={"column"} height={"50%"} width={"50%"} alignItems={"start"}  justifyContent={"space-between"} gap={"20px"} marginTop={"20px"} marginLeft={"40px"}>
+<Flex direction={"column"} gap={"24px"}>
+<AImessage text="What is the tab Name" />
+<Usermessage text="The tab Name is Competitive landscape" />
+</Flex>
+<ChakraProvider>
+<InputGroup border={"#FCE6D5"} padding={"10px"} >
+    {/* <InputLeftElement pointerEvents='none' color='gray.300' fontSize='1.2em'>
+      $
+    </InputLeftElement> */}
+    <Input placeholder='Ask follow up'  padding={7} outline={"#B9333F"} />
+    <InputRightElement className="InputGroupChat" transform={"translateY(18px)"} width='4.5rem'>
+    <img src="/attach.svg"  style={{width:"20px"}} /> 
+    <img src="/upload.svg"  style={{width:"20px"}} />
+        </InputRightElement>
+
+  </InputGroup>
+</ChakraProvider>
+
+            </Flex>
+        }
+
+          {/* Marketing Strategy*/}
+          {subTab === "Marketing Strategy" && 
+            <Flex direction={"column"} height={"50%"} width={"50%"} alignItems={"start"}  justifyContent={"space-between"} gap={"20px"} marginTop={"20px"} marginLeft={"40px"}>
+<Flex direction={"column"} gap={"24px"}>
+<AImessage text="What is your company Name" />
+<Usermessage text="Coconut Fibre Product" />
+</Flex>
+<ChakraProvider>
+<InputGroup border={"#FCE6D5"} padding={"10px"} >
+    {/* <InputLeftElement pointerEvents='none' color='gray.300' fontSize='1.2em'>
+      $
+    </InputLeftElement> */}
+    <Input placeholder='Ask follow up'  padding={7} outline={"#B9333F"} />
+    <InputRightElement className="InputGroupChat" transform={"translateY(18px)"} width='4.5rem'>
+    <img src="/attach.svg"  style={{width:"20px"}} /> 
+    <img src="/upload.svg"  style={{width:"20px"}} />
+      </InputRightElement>
+
+  </InputGroup>
+</ChakraProvider>
+
+            </Flex>
+        }
+          {/* Sales Plan */}
+          {subTab === "Sales Plan" && 
+            <Flex direction={"column"} height={"50%"} width={"50%"} alignItems={"start"}  justifyContent={"space-between"} gap={"20px"} marginTop={"20px"} marginLeft={"40px"}>
+<Flex direction={"column"} gap={"24px"}>
+<AImessage text="What is your company Name" />
+<Usermessage text="Coconut Fibre Product" />
+</Flex>
+<ChakraProvider>
+<InputGroup border={"#FCE6D5"} padding={"10px"} >
+    {/* <InputLeftElement pointerEvents='none' color='gray.300' fontSize='1.2em'>
+      $
+    </InputLeftElement> */}
+    <Input placeholder='Ask follow up'  padding={7} outline={"#B9333F"} />
+    <InputRightElement className="InputGroupChat" transform={"translateY(18px)"} width='4.5rem'>
+    <img src="/attach.svg"  style={{width:"20px"}} /> 
+   <img src="/upload.svg"  style={{width:"20px"}} />
+    </InputRightElement>
+
+  </InputGroup>
+</ChakraProvider>
+
+            </Flex>
+        }
           </div>
         )}
         {selectedTab === "Draft" && (
