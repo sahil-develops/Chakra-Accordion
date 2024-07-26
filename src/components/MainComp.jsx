@@ -53,7 +53,7 @@ function MainContent({items}) {
         <p className="appdivHeader poppins-regular">Coconut Fibre product</p>
       </div>
 
-      <div className="appDivTabsName">
+      <div className="appDivTabsName no-scrollbar">
         <div>
           <button
             onClick={() => setSelectedTab("Build")}
@@ -151,7 +151,7 @@ function MainContent({items}) {
             className="poppins-regular buildMainDiv"
             style={{ padding: "20px 20px",}}
           >
-            <div className="buildListTab">
+            <div className="buildListTab no-scrollbar">
             <VStack align="stretch" gap={"8px"} spacing={2} p={4}>
           {items.map((item, index) => (
             <Box

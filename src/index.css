@@ -214,6 +214,9 @@ padding: 20px 10px
     border-radius: 30px;
   }
 
+  .mainAppdiv {
+    overflow-x: hidden;
+  }
 
 
   .mainDivButton{
@@ -476,3 +479,9 @@ margin-right: 10px;
       75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
       100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
   }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
